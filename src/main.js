@@ -10,9 +10,9 @@ Vue.use(Vant);
 
 // lazy-load
 import VueLazyload from 'vue-lazyload'
-Vue.use(VueLazyload,{
-	error:require('@/assets/image/error.png'),
-	loading:require('@/assets/image/loading.gif')
+Vue.use(VueLazyload, {
+  error: require('@/assets/image/error.png'),
+  loading: require('@/assets/image/loading.gif')
 })
 // vconsole
 import Vconsole from 'vconsole'

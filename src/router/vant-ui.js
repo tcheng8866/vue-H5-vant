@@ -5,7 +5,7 @@ const vantUiOther = () => import('@/views/vant-ui/other.vue')
 //以“/”开头的嵌套路径会被当作根路径，所以子路由上不用加“/”;在生成路由时，主路由上的path会被自动添加到子路由之前。
 const vantUiRouters = [
 	{
-		path: 'basic', 
+		path: 'basic',
 		name: 'vantUiBasic',
 		component: vantUiBasic,
 		meta: {

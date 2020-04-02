@@ -10,19 +10,19 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-      path: '/',
-	  name: 'default',
-      component: defaultView
+    path: '/',
+    name: 'default',
+    component: defaultView
   },
   {
-      path: '/',
-  	  name: 'vuex',
-      component: defaultView
+    path: '/',
+    name: 'vuex',
+    component: defaultView
   },
   {
-      path: '/vantUi',
-      component: vantUiViews,
-      children: vantUiRouters
+    path: '/vantUi',
+    component: vantUiViews,
+    children: vantUiRouters
   }
 ]
 

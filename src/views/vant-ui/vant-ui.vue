@@ -10,7 +10,9 @@ export default {
     next(); // 深坑：不放 next 默认拦截所以下级路由
     console.log("vant-ui");
   },
-  created() {}
+  created() {
+	  console.log('prototype：', this.$appName)
+  }
 };
 </script>
 

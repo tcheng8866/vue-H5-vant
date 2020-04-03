@@ -10,7 +10,6 @@
       <van-divider
         >dispatch的commit是异步操作、故使用$forceUpdate刷新localStorage状态</van-divider
       >
-      <!-- <div>{{ localStorage }}</div> -->
       <div v-html="localStorage"></div>
     </div>
   </div>
@@ -46,8 +45,7 @@ export default {
     clickBtn() {
       this.vantUiBasciInfo.basciValue = this.basciValue;
       this.$store.dispatch("setVantUiBasciInfo", this.vantUiBasciInfo);
-
-      // dispatch是异步、故localStorage更新慢、使用$nextTick、setTimeout也处理不了
+      // dispatch是异步、需要等待下一次刷线dom才能触发、使用$nextTick、setTimeout也处理不了
       this.localStorage = window.localStorage.getItem("vantUi");
       this.$forceUpdate();
     }

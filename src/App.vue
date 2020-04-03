@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <!--    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
+       <div id="nav">
+      <router-link to="/">vuex</router-link> |
+      <router-link to="/vantUi/basic">basic</router-link> |
+      <router-link to="/vantUi/form">form</router-link> |
+      <router-link to="/vantUi/other">other</router-link>
+    </div>
     <router-view />
   </div>
 </template>

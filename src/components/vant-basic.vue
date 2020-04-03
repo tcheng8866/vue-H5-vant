@@ -168,7 +168,6 @@ export default {
       }
     }
     .ellipsis {
-      padding: 0 20px;
       text-align: left;
       div {
         margin: 10px 0;

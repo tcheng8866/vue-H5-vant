@@ -66,14 +66,15 @@
         />
       </div>
       <div class="row">
-        <!-- gutter="20"：列间距、支持flex布局 -->
+        <!-- 共24格 offset:偏移、 gutter="20"：设置列间距、支持flex布局-->
         <van-row gutter="20">
           <van-col span="6">span: 6</van-col>
-          <van-col span="10" offset="4">offset: 4, span: 10</van-col>
+          <van-col span="6">span: 6</van-col>
+          <van-col span="6">span: 6</van-col>
+          <van-col span="6">span: 6</van-col>
         </van-row>
         <!-- space-around: around四周; space-between: 最两侧，间隙都在中间-->
-        <van-row gutter="20" type="flex" justify="space-around">
-          <van-col span="6">span: 6</van-col>
+        <van-row gutter="20" type="flex" justify="space-between">
           <van-col span="6">span: 6</van-col>
           <van-col span="6">span: 6</van-col>
         </van-row>
@@ -144,7 +145,10 @@ export default {
     background-color: #ffffff;
     .button {
       button {
-        margin: 12px 16px;
+        margin: 12px 10px;
+      }
+      .van-button--block {
+        margin: 12px 0;
       }
     }
     .cell {
@@ -154,18 +158,24 @@ export default {
       font-size: 32px;
     }
     .row {
-      .van-col {
-        margin-bottom: 10px;
-        line-height: 30px;
-        background-clip: content-box;
-        // nth-child(1) 可传入1.2.3....   默认号从序1开始
-        &:nth-child(odd) {
-          background-color: #39a9ed;
-        }
-        &:nth-child(even) {
-          background-color: red;
+      /deep/ .van-row {
+        margin: 0 0 10px 0 !important;
+        .van-col {
+          line-height: 30px;
+          // nth-child(1) 可传入1.2.3....   默认号从序1开始
+          &:nth-child(odd) {
+            background-color: #39a9ed;
+          }
+          &:nth-child(even) {
+            background-color: red;
+          }
         }
       }
+              .van-row--flex {
+          .van-col {
+            background-clip: content-box;
+          }
+        }
     }
     .ellipsis {
       text-align: left;

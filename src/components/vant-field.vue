@@ -115,8 +115,6 @@ export default {
   text-align: center;
   vertical-align: middle;
   word-wrap: break-word;
-  padding: 0 20px;
-
   .wrap {
     background-color: #ffffff;
     .field-input {

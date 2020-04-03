@@ -7,9 +7,6 @@
         >按钮</van-button
       >
       <van-divider>localStorage</van-divider>
-      <van-divider
-        >dispatch的commit是异步操作、故使用$forceUpdate刷新localStorage状态</van-divider
-      >
       <div v-html="localStorage"></div>
     </div>
   </div>
@@ -48,7 +45,7 @@ export default {
       // dispatch是异步、需要等待下一次刷线dom才能触发、使用$nextTick、setTimeout也处理不了
       this.localStorage = window.localStorage.getItem("vantUi");
       this.$forceUpdate();
-    }
+    },
   }
 };
 </script>
@@ -64,7 +61,7 @@ export default {
   word-wrap: break-word;
   .wrap {
     background-color: #ffffff;
-    padding: 100px 20px;
+    padding: 50px 20px;
     /deep/ .van-field__label {
       line-height: 37px;
     }

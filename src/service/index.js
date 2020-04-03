@@ -7,15 +7,14 @@ import {
 	Toast
 } from 'vant';
 
-import api from './api.js'
+import API from './api.js'
 
 // 环境的切换
 if (process.env.NODE_ENV == 'development') {
-	axios.defaults.baseURL = 'http://api.123dailu.com/';
+	axios.defaults.baseURL = 'http://api.development.com/';
 } else if (process.env.NODE_ENV == 'production') {
-	axios.defaults.baseURL = 'http://api.123dailu.com/';
+	axios.defaults.baseURL = 'http://api.production.com/';
 }
-
 // 请求超时时间
 axios.defaults.timeout = 10000;
 // post请求头
@@ -95,8 +94,9 @@ export function get(url, params) {
  */
 export function post(url, params) {
 	return new Promise((resolve, reject) => {
-		// let urlParse = '/' + API[key1][key2]: API[key1][key2],
-			axios.post(url, QS.stringify(params))
+		const [key1, key2] = url.split('/')
+		const urlParse = API[key1][key2]
+		axios.post(urlParse, QS.stringify(params))
 			.then(res => {
 				resolve(res.data);
 			})

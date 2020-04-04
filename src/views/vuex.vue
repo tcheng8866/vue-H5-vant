@@ -3,7 +3,7 @@
     <div class="wrap">
       <van-field v-model="basciValue" label="vuex测试" input-align="right" />
       <!-- <input v-model="basciValue"/> -->
-      <van-button icon="star-o" type="primary" @click="clickBtn()"
+      <van-button type="primary" @click="clickBtn()"
         >按钮</van-button
       >
       <van-divider>localStorage</van-divider>
@@ -61,6 +61,7 @@ export default {
   word-wrap: break-word;
   .wrap {
     background-color: #ffffff;
+	height: 100%;
     padding: 50px 20px;
     /deep/ .van-field__label {
       line-height: 37px;

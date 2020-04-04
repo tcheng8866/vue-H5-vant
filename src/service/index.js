@@ -113,6 +113,7 @@ export function post(url, params) {
  */
 export function jsonp(url, data, option) {
 	url += (url.indexOf('?') < 0 ? '?' : '&') + param(data)
+	
 	return new Promise(function(resolve, reject) {
 		originJSONP(url, option, function(err, data) {
 			if (!err) {

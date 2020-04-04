@@ -10,6 +10,7 @@ const isIos = () => ua.indexOf('native') > -1// 是否IOS
 const isIpad = () => ua.indexOf('native') > -1// 是否Ipad
 
 export default {
+  ua: ua,
   isWechat: isWechat(),
   isAndroid: isAndroid(),
   isIos: isIos(),

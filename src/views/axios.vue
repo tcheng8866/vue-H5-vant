@@ -1,8 +1,10 @@
 <template>
 	<div class="page">
 		<div class="wrap">
+			<p>axios未提供jsonp封装；</p>
+			<p>npm的jsonp模块、或者document.createElement('script')封装</p>
 			<van-field v-model="tel" label="手机号码" placeholder="jsonp测试" />
-			<van-button icon="star-o" type="primary" @click="clickBtn()">按钮</van-button>
+			<van-button type="primary" @click="clickBtn()">按钮</van-button>
 			<van-panel title="手机号查询" desc="" status="jsonp">
 				{{ resText }}
 			</van-panel>
@@ -59,8 +61,12 @@
 
 		.wrap {
 			background-color: #ffffff;
-			padding: 50px 20px;
-
+			padding: 0 20px;
+			height: 100%;
+			padding: 0 15px;
+			p {
+				text-align: left;
+			}
 			/deep/ .van-field__label {
 				line-height: 37px;
 			}

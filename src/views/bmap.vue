@@ -1,12 +1,8 @@
 <template>
 	<div class="page">
 		<div class="wrap">
-			<div class="head">
-				<ui>
-					<li>wx环境：公众号接口wxGetLocation -err-> 腾讯地图getLocation -err-> 腾讯地图getIpLocation -succ-> 坐标转换wgs84ConverToBaidu </li>
-					<li>非wx：百度地图浏览器定位(pc端无GPS模块，走默认ip定位) </li>
-				</ui>
-			</div>
+			<p>wx环境：公众号接口wxGetLocation -err-> 腾讯地图getLocation -err-> 腾讯地图getIpLocation -succ-> 坐标转换wgs84ConverToBaidu </p>
+			<p>非wx：百度地图浏览器定位(pc端无GPS模块，走默认ip定位) </p>
 			<div class="content">
 				<!-- 地图初始化 -->
 				<baidu-map class="bm-view" ak="UN65YsvjLf7Lu85y3RKQtA7uaceLtPye" :pinch-to-zoom="true" :center="nearby.center"
@@ -268,14 +264,17 @@
 		text-align: center;
 		vertical-align: middle;
 		word-wrap: break-word;
+
 		.wrap {
 			background-color: #ffffff;
+			height: 100%;
+			padding: 0 15px;
+
 			.head {
 				text-align: left;
-				padding: 0 10px;
 			}
+
 			.content {
-				padding: 10px;
 				.bm-view {
 					width: 100%;
 					height: 375px;

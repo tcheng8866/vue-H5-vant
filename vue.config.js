@@ -1,8 +1,4 @@
 module.exports = {
-	publicPath: process.env.NODE_ENV === 'production' ?
-		'/my-project/' // github pages 打包路径
-		:
-		'/',
 	outputDir: 'dist', //build输出目录
 	assetsDir: 'assets', //静态资源目录（js, css, image）
 	lintOnSave: false, //是否开启eslint

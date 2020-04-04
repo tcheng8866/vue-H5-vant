@@ -62,7 +62,7 @@ export default {
   .wrap {
     background-color: #ffffff;
 	height: 100%;
-	padding: 0 15px;
+    padding: 50px 20px;
     /deep/ .van-field__label {
       line-height: 37px;
     }

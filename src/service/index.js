@@ -11,7 +11,7 @@ import API from './api.js'
 
 // 环境的切换
 if (process.env.NODE_ENV == 'development') {
-	axios.defaults.baseURL = 'http://api.development.com/';
+	axios.defaults.baseURL = '/';
 } else if (process.env.NODE_ENV == 'production') {
 	axios.defaults.baseURL = 'http://api.production.com/';
 }

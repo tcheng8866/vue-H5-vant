@@ -1,5 +1,10 @@
 export default {
-	'numberShop': {
-		'listCity': '/cmcc/api/auth/shanxi/phoneNumberShop/listCity',
-	}
+	'modules': {
+		'interface': '/serve/api/auth/modules/interface',
+	},
+	'v1': {
+		'batch': 'v1/ipv4/batch',
+	},
+	
+	
 }

@@ -1,7 +1,11 @@
 <template>
 	<div class="page">
 		<div class="wrap">
+			<van-field v-model="tel" label="手机号码" placeholder="jsonp测试" />
 			<van-button icon="star-o" type="primary" @click="clickBtn()">按钮</van-button>
+			<van-panel title="手机号查询" desc="" status="jsonp">
+				{{ resText }}
+			</van-panel>
 		</div>
 	</div>
 </template>
@@ -17,7 +21,10 @@
 		components: {},
 		props: {},
 		data() {
-			return {};
+			return {
+				tel: 18702906728,
+				resText: 'https://tcc.taobao.com/cc/json/mobile_tel_segment.htm'
+			};
 		},
 		computed: {},
 		watch: {},
@@ -26,9 +33,15 @@
 		destroyed() {},
 		methods: {
 			async clickBtn() {
-				const res = await this.$post("v1/batch", {
-					ips: '8.8.8.8'
-				})
+				const res = await this.$jsonp("https://tcc.taobao.com/cc/json/mobile_tel_segment.htm", {
+						tel: this.tel
+					})
+					.then(res => {
+						this.resText = res
+					})
+					.catch((err) => {
+						this.resText = err
+					})
 			},
 		}
 	};

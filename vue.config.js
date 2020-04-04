@@ -8,6 +8,6 @@ module.exports = {
 		port: '8081',
 		https: false, //是否使用https协议
 		hotOnly: true, //是否开启热更新
-		proxy: null,
+		proxy: 'http://api.nowtime.cc/'
 	}
 }

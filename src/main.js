@@ -4,7 +4,7 @@ import router from './router/index.js'
 import store from './store'
 
 // 全局
-import global from './util/global.js'
+import global from './global.js'
 Vue.use(global)
 
 // vant

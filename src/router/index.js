@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import vuexView from '@/views/vuex.vue'
 import axiosView from '@/views/axios.vue'
+import bmapView from '@/views/bmap.vue'
 
 import vantUiViews from '@/views/vant-ui/vant-ui.vue'
 import vantUiRouters from './vant-ui.js'
@@ -24,6 +25,11 @@ const routes = [
     path: '/axios',
     name: 'axios',
     component: axiosView
+  },
+  {
+    path: '/bmap',
+    name: 'bmap',
+    component: bmapView
   },
   {
     path: '/vantUi',

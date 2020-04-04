@@ -3,6 +3,7 @@
        <div id="nav">
       <router-link to="/">vuex</router-link> |
 	  <router-link to="/axios">axios</router-link> |
+	  <router-link to="/bmap">bmap</router-link> |
       <router-link to="/vantUi/basic">basic</router-link> |
       <router-link to="/vantUi/form">form</router-link> |
       <router-link to="/vantUi/other">other</router-link>

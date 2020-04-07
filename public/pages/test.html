@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue 测试实例</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="static" :class="{ 'active': false, 'text-danger': true }">直接浏览器看dom就知道有没有加载上去</div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        arr: [1],
+        arr_obj: [{ key: 1, value: 'aa' }, { key: 2, value: 'bb' }],
+        obj: { key: 1, value: 'aa' },
+        num: 1,
+        str: 'aa'
+      },
+      methods: {
+        test() {
+          // 过滤： ==、!=
+          let filter = this.arr_obj.filter(item => item.key == 1)
+          console.log('filter', filter)
+          // 转换格式
+          let keyValue = this.arr_obj.map(item => (
+            {
+              'key': item.key,
+              'name': item.value
+            }
+          ))
+          console.log('keyValue', keyValue)
+          // 循环筛选(数组筛选数组)
+          let find = []
+          for (var i = 0; i < this.arr_obj.length; i++) {
+            let key = this.arr_obj[i].key
+            if (this.arr.indexOf(key) != -1) {
+              find.push(this.arr_obj[i])
+            }
+          }
+          console.log('find', find)
+          // this 与 that（有时候断点时this拿不到，但console是能拿到的, 故不用起别名）
+          var _that = this
+          this.arr_obj.map(item => {
+            if (item.value == this.str) {
+              console.log('this')
+            }
+            if (item.value == _that.str) {
+              console.log('_that')
+            }
+          })
+
+          // 数组转对象
+          let arr2 = [{
+            name: 'dr',
+            ct: 'dr001'
+          },
+          {
+            name: 'ljy',
+            ct: 'ljy002'
+          }]
+          let obj2 = {}
+          arr2.forEach(item => {
+            obj2[item.name] = item.ct
+          })
+          // undefined 的转换与判断
+          // return this.$route.query.itemIndex  
+          // return this.$route.query.itemIndex || 0
+          // return this.$route.query.itemIndex || ''
+          // if (this.itemIndex === '' || this.itemIndex === undefined) { }
+
+          // 随机取整
+          this.rotateDeg_fixed += Math.floor(Math.random() * 7 + 3)
+        }
+      },
+      created() {
+        this.test()
+      }
+    })
+  </script>
+</body>
+
+</html>

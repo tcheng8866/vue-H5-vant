@@ -3,9 +3,7 @@
     <div class="wrap">
       <van-field v-model="basciValue" label="vuex测试" input-align="right" />
       <!-- <input v-model="basciValue"/> -->
-      <van-button type="primary" @click="clickBtn()"
-        >按钮</van-button
-      >
+      <van-button type="primary" @click="clickBtn()">按钮</van-button>
       <van-divider>localStorage</van-divider>
       <div v-html="localStorage"></div>
     </div>
@@ -45,7 +43,7 @@ export default {
       // dispatch是异步、需要等待下一次刷线dom才能触发、使用$nextTick、setTimeout也处理不了
       this.localStorage = window.localStorage.getItem("vantUi");
       this.$forceUpdate();
-    },
+    }
   }
 };
 </script>
@@ -54,14 +52,14 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  background: rgba(243, 243, 243, 1); //灰色
+  background: #fafafa; //灰色
   font-size: 14px;
   text-align: center;
   vertical-align: middle;
   word-wrap: break-word;
   .wrap {
     background-color: #ffffff;
-	height: 100%;
+    height: 100%;
     padding: 50px 20px;
     /deep/ .van-field__label {
       line-height: 37px;

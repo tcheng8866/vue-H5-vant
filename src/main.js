@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router/index.js'
 import store from './store'
 
+// 清除默认样式
+import '@/assets/style/reset.css'
+
 // 全局
 import global from './global.js'
 Vue.use(global)

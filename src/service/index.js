@@ -105,7 +105,21 @@ export function post(url, params) {
 				reject(err.data)
 			})
 	});
+	// axios已经对promise做了封装, 尽量不做再次处理减少开销
+	// axios({
+	// 	method: 'post',
+	// 	url: urlParse,
+	// 	data: params
+	// });
 }
+
+	// async/await是写异步代码的新方式，以前的方法有回调函数和Promise。
+	// async/await是基于Promise实现的，它不能用于普通的回调函数。
+	// async/await与Promise一样，是非阻塞的。
+	// async/await使得异步代码看起来像同步代码，这正是它的魔力所在。
+	
+	// 用promise封装 jsonp 使其支持async/await写法
+
 /** 
  * axios不支持jsonp请求
  * jsonp方法，对应jsonp请求 
@@ -113,7 +127,7 @@ export function post(url, params) {
  */
 export function jsonp(url, data, option) {
 	url += (url.indexOf('?') < 0 ? '?' : '&') + param(data)
-	
+
 	return new Promise(function(resolve, reject) {
 		originJSONP(url, option, function(err, data) {
 			if (!err) {

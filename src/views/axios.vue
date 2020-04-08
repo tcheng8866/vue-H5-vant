@@ -4,10 +4,10 @@
       <p>axios未提供jsonp封装；</p>
       <p>npm的jsonp模块、或者document.createElement('script')封装</p>
       <van-field v-model="tel" label="手机号码" placeholder="jsonp测试" />
-      <van-button type="primary" @click="clickBtn()">按钮</van-button>
-      <van-panel title="手机号查询" desc="" status="jsonp">
-        {{ resText }}
-      </van-panel>
+      <van-button type="primary" @click="clickAwait()">jsonp请求</van-button>
+      <van-panel title="手机号查询" desc="" status="jsonp">{{
+        resText
+      }}</van-panel>
     </div>
   </div>
 </template>
@@ -32,7 +32,22 @@ export default {
   mounted() {},
   destroyed() {},
   methods: {
-    async clickBtn() {
+    async clickAwait() {
+      try {
+        const res = await this.$jsonp(
+          "https://tcc.taobao.com/cc/json/mobile_tel_segment.htm",
+          {
+            tel: this.tel
+          }
+        );
+        if (res) {
+          this.resText = res;
+        }
+      } catch (e) {
+        this.resText = e;
+      }
+    },
+    async clickPromise() {
       const res = await this.$jsonp(
         "https://tcc.taobao.com/cc/json/mobile_tel_segment.htm",
         {
@@ -61,18 +76,17 @@ export default {
   word-wrap: break-word;
   .wrap {
     background-color: #ffffff;
-    padding: 0 20px;
     height: 100%;
     padding: 0 15px;
     p {
       text-align: left;
     }
     /deep/ .van-field__label {
-      line-height: 37px;
+      line-height: 40px;
     }
-    /deep/ .van-field__value {
+    /deep/ .van-field__control {
       border: 1px solid #999;
-      height: 25px;
+      height: 40px;
       padding: 5px 10px;
     }
   }

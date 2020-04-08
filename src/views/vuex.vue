@@ -62,11 +62,11 @@ export default {
     height: 100%;
     padding: 50px 20px;
     /deep/ .van-field__label {
-      line-height: 37px;
+      line-height: 40px;
     }
-    /deep/ .van-field__value {
+    /deep/ .van-field__control--right {
       border: 1px solid #999;
-      height: 25px;
+      height: 40px;
       padding: 5px 10px;
     }
   }

@@ -4,11 +4,13 @@
       <p>axios未提供jsonp封装；</p>
       <p>npm的jsonp模块、或者document.createElement('script')封装</p>
       <van-field v-model="tel" label="手机号码" placeholder="jsonp测试" />
-      <van-button type="primary" @click="clickAwait()">jsonp请求</van-button>
+      <van-button type="primary" @click="clickAwait()">jsonp</van-button>
+	  <van-button type="primary" @click="clickPost()">api封装</van-button>
+	  <van-button type="primary" @click="clickProxy()">proxy</van-button>
       <van-panel title="手机号查询" desc="" status="jsonp">{{
         resText
       }}</van-panel>
-	  <van-button type="primary" @click="clickPost()">测试环境变量</van-button>
+
     </div>
   </div>
 </template>
@@ -64,6 +66,7 @@ export default {
           this.resText = err;
         });
     },
+	// 测试 api  post
     async clickPost() {
       try {
         const res = await this.$post(
@@ -79,6 +82,22 @@ export default {
         this.resText = e;
       }
     },	
+	// 测试 proxy
+	async clickProxy() {
+      try {
+        const res = await this.$post(
+          "modules/proxy",
+          {
+            tel: this.tel
+          }
+        );
+        if (res) {
+          this.resText = res;
+        }
+      } catch (e) {
+        this.resText = e;
+      }		
+	}
   }
 };
 </script>
@@ -107,6 +126,9 @@ export default {
       height: 40px;
       padding: 5px 10px;
     }
+	/deep/ .van-button {
+		margin: 0 10px;
+	}
   }
 }
 </style>

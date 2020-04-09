@@ -19,18 +19,20 @@ module.exports = {
   //反向代理
   devServer: {
     // 环境配置
-    host: '127.0.0.1',  
-    port: 3000,
-    https: true,
+    host: 'localhost',  
+    port: 8888,
+    https: false,  //是否以https启动
     hotOnly: false,
-    open: true, //配置自动启动浏览器(按照devServer的配置host:port)
+    open: false, //配置自动启动浏览器(按照devServer的配置host:port)
     proxy: {
       // 配置多个代理(配置一个 proxy: 'http://localhost:4000' )
-      '/': {
-        target: 'http://192.168.1.248:9888',
-        pathRewrite: {
-          '^/api': '/api'
-        }
+      '/api': {   // 拦截前端XXX开头的请求(仅特定接口, 剔除img等资源)
+        target: 'sn.ac.10086.cn/mall/vpclub/vp:8080',  // 目标地址
+		ws: true,
+		changeOrigin: true,  //跨域支持, 这也是配置proxy的主要目的
+        // pathRewrite: {
+        //   '^/api': ''  // 剔除掉前端加的xxx, 因正式请求无xxx
+        // }
       }
     }
   },

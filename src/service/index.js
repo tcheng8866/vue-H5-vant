@@ -22,7 +22,7 @@ import {
 
 if (process.env.NODE_ENV == 'development') {
 	// npm run serve
-	axios.defaults.baseURL = 'http://api.development.com/';
+	// axios.defaults.baseURL = 'http://api.development.com/';
 } else if (process.env.NODE_ENV == 'production') {
 	// npm run build
 	axios.defaults.baseURL = 'http://api.production.com/';
@@ -36,6 +36,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 // 请求拦截器（初始化时执行）
 axios.interceptors.request.use(
 	config => {
+		console.log("axios", config)
 		return config;
 	},
 	error => {

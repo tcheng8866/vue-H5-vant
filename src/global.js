@@ -15,7 +15,6 @@ const install = (Vue, option) => {
 	Vue.prototype.$platform = platform
 
 	Vue.prototype.$appName = 'vant-prj'
-	Vue.prototype.$appName = 'vant-prj'
 	
 	Vue.prototype.$APPID_PAY10086 = 'wx3aaa7500ba3b7178' // 10086支付
 	  

@@ -16,23 +16,17 @@ module.exports = {
   },
   lintOnSave: true, // 是否在保存的时候检查
   productionSourceMap: true, // 生产环境是否生成 sourceMap 文件
-  // css: {
-  //   extract: true, // 是否使用css分离插件 ExtractTextPlugin
-  //   sourceMap: false, // 开启 CSS source maps
-  //   loaderOptions: {}, // css预设器配置项
-  //   modules: false // 启用 CSS modules for all css / pre-processor files.
-  // },
   //反向代理
   devServer: {
     // 环境配置
-    host: 'localhost',  
+    host: '127.0.0.1',  
     port: 3000,
     https: true,
     hotOnly: false,
     open: true, //配置自动启动浏览器(按照devServer的配置host:port)
     proxy: {
       // 配置多个代理(配置一个 proxy: 'http://localhost:4000' )
-      '/api': {
+      '/': {
         target: 'http://192.168.1.248:9888',
         pathRewrite: {
           '^/api': '/api'

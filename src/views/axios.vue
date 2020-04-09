@@ -8,6 +8,7 @@
       <van-panel title="手机号查询" desc="" status="jsonp">{{
         resText
       }}</van-panel>
+	  <van-button type="primary" @click="clickPost()">测试环境变量</van-button>
     </div>
   </div>
 </template>
@@ -32,6 +33,7 @@ export default {
   mounted() {},
   destroyed() {},
   methods: {
+	  // async await写法(函数是promise才能用)
     async clickAwait() {
       try {
         const res = await this.$jsonp(
@@ -47,8 +49,9 @@ export default {
         this.resText = e;
       }
     },
-    async clickPromise() {
-      const res = await this.$jsonp(
+	// promise 写法
+    clickPromise() {
+      const res = this.$jsonp(
         "https://tcc.taobao.com/cc/json/mobile_tel_segment.htm",
         {
           tel: this.tel
@@ -60,7 +63,22 @@ export default {
         .catch(err => {
           this.resText = err;
         });
-    }
+    },
+    async clickPost() {
+      try {
+        const res = await this.$post(
+          "modules/interface",
+          {
+            tel: this.tel
+          }
+        );
+        if (res) {
+          this.resText = res;
+        }
+      } catch (e) {
+        this.resText = e;
+      }
+    },	
   }
 };
 </script>

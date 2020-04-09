@@ -15,11 +15,20 @@ import {
 } from '@/util/index.js'
 
 // 环境的切换
+// 模式是Vue CLI项目中的一个重要概念。默认情况下，Vue CLI项目中有三种模式：
+// development：在vue-cli-service serve下，即开发环境使用
+// production：在vue-cli-service build 和vue-cli-service test:e2e下，即正式环境使用
+// test： 在vue-cli-service test:unit下使用,
+
 if (process.env.NODE_ENV == 'development') {
+	// npm run serve
 	axios.defaults.baseURL = 'http://api.development.com/';
 } else if (process.env.NODE_ENV == 'production') {
+	// npm run build
 	axios.defaults.baseURL = 'http://api.production.com/';
 }
+console.log("环境配置process", process)
+
 // 请求超时时间
 axios.defaults.timeout = 100000;
 // post请求头

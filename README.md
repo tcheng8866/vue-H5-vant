@@ -16,11 +16,11 @@ vue-cli 3.0 + vue-router+ vux plugins插件 + 有赞vant UI整体解决方案;
 - vant field、picker等基础组件、弹框暴露js插件、日历类等。
 
 ## 截图展示
+![](public/pages/1.png)
+![](public/pages/2.png)
+![](public/pages/3.png)
+![](public/pages/4.png)
+![](public/pages/5.png)
 
-<img src="public/pages/1.png">
-<img src="public/pages/2.png">
-<img src="public/pages/3.png">
-<img src="public/pages/4.png">
-<img src="public/pages/5.png">
 
 ### 项目地址：[vant-prj](https://github.com/tcheng8866/vant-prj)

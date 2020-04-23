@@ -5,6 +5,7 @@ import vuexView from '@/views/vuex.vue'
 import axiosView from '@/views/axios.vue'
 import bmapView from '@/views/bmap.vue'
 import wxView from '@/views/wx.vue'
+import compWrapView from '@/views/comp-wrap.vue'
 
 import vantUiViews from '@/views/vant-ui/vant-ui.vue'
 import vantUiRouters from './vant-ui.js'
@@ -37,6 +38,11 @@ const routes = [
     name: 'wx',
     component: wxView
   },
+  {
+    path: '/compwrap',
+    name: 'compWrap',
+    component: compWrapView
+  },  
   {
     path: '/vantUi',
     component: vantUiViews,

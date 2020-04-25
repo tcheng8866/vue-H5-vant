@@ -58,9 +58,7 @@ export default {
   .wrap {
     background-color: #ffffff;
     height: 100%;
+	padding: 20px;
   }
-}
-.labelClass {
-  fontsize: 30px;
 }
 </style>

@@ -1,9 +1,7 @@
 <template>
   <div class="page">
     <div class="wrap">
-      <!-- （tel实际上是一种text类型）手机端会唤醒数字键盘 -->
-      <!-- （number 可以输入（-）、多个小数点、所以最好输入不控制、但提交时正则拦截、输入控制会有兼容性问题-->
-      <w-input
+     <w-input
         :label="label"
         v-model.trim="modelTel"
         :maxlength="maxlength"
@@ -11,18 +9,17 @@
         :placeholder="placeholder"
         :disabled="disabled"
       ></w-input>
-      <w-button :disabled="disabled" @click="bindClick()">测试</w-button>
+     <w-button :disabled="disabled" @click="bindClick()">测试</w-button>
     </div>
   </div>
 </template>
 
 <script>
-// import wInput from "comp-wrap";
-// import wButton from "comp-wrap";
+/* import {wInput, wButton } from 'comp-wrap'  // 这种没成功 */
 export default {
   name: "",
   mixins: [],
-  // components: { wInput, wButton },
+/* components: { wInput, wButton }, */
   props: {},
   data() {
     return {

@@ -24,8 +24,8 @@ export default {
   data() {
     return {
       label: "电话号码：",
-      modelTel: "18702906728",
-      maxlength: 1000,
+      modelTel: "",
+      maxlength: '5',
       type: "tel",
       placeholder: "",
       disabled: false

@@ -15,12 +15,6 @@ vue-cli 3.0 + vue-router+ vux plugins插件 + 有赞vant UI整体解决方案;
 - wx 微信基础能力
 - vant field、picker等基础组件、弹框暴露js插件、日历类等。
 
-## 截图展示
-![](http://q94q056qd.bkt.clouddn.com/vant-prj1.png)
-![](http://q94q056qd.bkt.clouddn.com/vant-prj2.png)
-![](http://q94q056qd.bkt.clouddn.com/vant-prj3.png)
-![](http://q94q056qd.bkt.clouddn.com/vant-prj4.png)
-![](http://q94q056qd.bkt.clouddn.com/vant-prj5.png)
 
 ### 在线预览：
 ### [vant-prj -- vue移动端项目](https://tcheng8866.github.io/vant-prj/dist/index.html#/)

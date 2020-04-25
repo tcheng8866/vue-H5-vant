@@ -10,10 +10,16 @@ import '@/assets/style/reset.css'
 import global from './global.js'
 Vue.use(global)
 
-// 导入自己的组件库
+/* // 导入自己的组件库
 import compWrap from 'comp-wrap'
 // 注册组件库
-Vue.use(compWrap)
+Vue.use(compWrap) */
+
+import wInput from 'comp-wrap'
+Vue.use(wInput)
+import wButton from 'comp-wrap'
+Vue.use(wButton)
+
 
 // vant
 import Vant from 'vant';

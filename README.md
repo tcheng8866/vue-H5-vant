@@ -5,7 +5,6 @@ vue-cli 3.0 + vue-router+ vux plugins插件 + 有赞vant UI整体解决方案;
 ##
 - 安装依赖 npm install
 - 启动项目 npm run serve
-<img src="img/logo.jpg">
 
 ## 功能列表
 
@@ -22,4 +21,3 @@ vue-cli 3.0 + vue-router+ vux plugins插件 + 有赞vant UI整体解决方案;
 ### github地址：
 ### [comp-wrap -- NPM上传的组件](https://github.com/tcheng8866/comp-wrap)
 ### [miniprogram-prj -- 小程序云开发项目](https://github.com/tcheng8866/miniprogram-prj)
-### [uni-app-prj -- uni-app多端兼容项目](https://github.com/tcheng8866/uni-app-prj)

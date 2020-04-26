@@ -22,8 +22,7 @@ module.exports = {
     host: 'localhost',  
     port: 8888,
     https: false,  //是否以https启动
-    hotOnly: false,
-    open: false, //配置自动启动浏览器(按照devServer的配置host:port)
+    open: true, //配置自动启动浏览器(按照devServer的配置host:port)
     proxy: {
       // 配置多个代理(配置一个 proxy: 'http://localhost:4000' )
       '/api': {   // 拦截前端XXX开头的请求(仅特定接口, 剔除img等资源)

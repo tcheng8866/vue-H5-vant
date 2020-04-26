@@ -1,15 +1,24 @@
 <template>
   <div class="page">
     <div class="wrap">
-     <w-input
-        :label="label"
+      <w-input
+        :label="labelTel"
         v-model.trim="modelTel"
-        :maxlength="maxlength"
-        :type="type"
-        :placeholder="placeholder"
         :disabled="disabled"
+        maxlength="11"
+        type="number"
+        placeholder="测试Number length"
       ></w-input>
-     <w-button :disabled="disabled" @click="bindClick()">测试</w-button>
+      <!-- type="tel": 用的是input自带的属性；:type="telModel" 这种是写在data传入组件 -->
+      <w-input
+        :label="labelNumber"
+        v-model.trim="modelNumber"
+        :disabled="disabled"
+        :maxlength="maxlength"   
+        type="number"
+        placeholder="测试Number length"
+      ></w-input>
+      <w-button :disabled="disabled" @click="bindClick()">测试</w-button>
     </div>
   </div>
 </template>
@@ -23,12 +32,12 @@ export default {
   props: {},
   data() {
     return {
-      label: "电话号码：",
-      modelTel: "",
-      maxlength: '5',
-      type: "tel",
-      placeholder: "",
-      disabled: false
+      labelTel: "电话",
+      modelTel: "18702906728",
+      labelNumber: '测试数字',
+      modelNumber: "18702906728",
+      disabled: false,
+      maxlength: '11'
     };
   },
   computed: {},
@@ -40,6 +49,7 @@ export default {
     bindClick() {
       // 不存在时机问题： 默认可以点击、点击一次后禁止点击
       console.log(this.modelTel);
+      console.log(this.modelNumber);
       this.disabled = true;
     }
   }

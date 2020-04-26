@@ -1,6 +1,9 @@
 <template>
   <div class="page">
     <div class="wrap">
+		<p>1. install comp-wrap</p>
+		<p>2. import compWrap from 'comp-wrap'</p>
+		<p>Vue.use(compWrap)</p>
       <w-input
         :label="labelTel"
         v-model.trim="modelTel"
@@ -62,7 +65,7 @@ export default {
   height: 100%;
   background: #fafafa; //灰色
   font-size: 14px;
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
   word-wrap: break-word;
   .wrap {

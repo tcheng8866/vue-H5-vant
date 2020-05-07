@@ -11,7 +11,7 @@ import {
 
 import API from './api.js'
 import {
-	param
+	objToStr
 } from '@/util/index.js'
 
 // 环境的切换
@@ -136,7 +136,7 @@ export function post(url, params) {
  * @param {String} url [请求的url地址] 
  */
 export function jsonp(url, data, option) {
-	url += (url.indexOf('?') < 0 ? '?' : '&') + param(data)
+	url += (url.indexOf('?') < 0 ? '?' : '&') + objToStr(data)
 
 	return new Promise(function(resolve, reject) {
 		originJSONP(url, option, function(err, data) {

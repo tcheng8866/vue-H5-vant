@@ -7,7 +7,6 @@
       <w-input
         :label="labelTel"
         v-model.trim="modelTel"
-        :disabled="disabled"
         maxlength="11"
         type="number"
         placeholder="测试Number length"
@@ -16,12 +15,12 @@
       <w-input
         :label="labelNumber"
         v-model.trim="modelNumber"
-        :disabled="disabled"
         :maxlength="maxlength"   
         type="number"
         placeholder="测试Number length"
       ></w-input>
       <w-button :disabled="disabled" @click="bindClick()">测试</w-button>
+	  <w-count-down :countDown="5" @click="handClick()"></w-count-down>
     </div>
   </div>
 </template>
@@ -54,7 +53,8 @@ export default {
       console.log(this.modelTel);
       console.log(this.modelNumber);
       this.disabled = true;
-    }
+    },
+	handClick() {}
   }
 };
 </script>

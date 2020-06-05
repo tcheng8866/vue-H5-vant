@@ -20,12 +20,15 @@ import {
 // production：在vue-cli-service build 和vue-cli-service test:e2e下，即正式环境使用
 // test： 在vue-cli-service test:unit下使用,
 
+// 配置后请求路径（代理前）
+// 开发环境:http://localhost:8080/api/xxx   （vue.config.js中的devServer.host）
+// 生产环境 http://baidu.com/xxx
 if (process.env.NODE_ENV == 'development') {
 	// npm run serve
-	// axios.defaults.baseURL = 'http://api.development.com/';
+	axios.defaults.baseURL = '/api/';
 } else if (process.env.NODE_ENV == 'production') {
 	// npm run build
-	axios.defaults.baseURL = 'http://api.production.com/';
+	axios.defaults.baseURL = 'http://aaaaaaaaaaaaaaaaaa.com/';
 }
 console.log("环境配置process", process)
 

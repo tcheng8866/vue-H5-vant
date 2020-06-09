@@ -19,6 +19,10 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
 
+// 可视化组件
+import dataV from '@jiaminghi/data-view'
+Vue.use(dataV)
+
 // lazy-load
 import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload, {

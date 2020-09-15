@@ -1,9 +1,9 @@
 export default {
 	'modules': {
 		'interface': '/serve/auth/modules/interface',
-		'proxy': '/api/auth/modules/proxy',
+		'proxy': '/serve/auth/modules/proxy',
 	},
 	'v1': {
-		'batch': 'v1/ipv4/batch',
+		'batch': '/v1/ipv4/batch',
 	}
 }

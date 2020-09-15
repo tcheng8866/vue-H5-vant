@@ -95,7 +95,7 @@ export default {
   data() {
     return {
       show: false
-    };
+    }
   },
   computed: {},
   watch: {},
@@ -103,7 +103,7 @@ export default {
   mounted() {},
   destroyed() {},
   methods: {}
-};
+}
 </script>
 
 <style scoped lang="less">
@@ -118,7 +118,7 @@ export default {
   word-wrap: break-word;
   .wrap {
     background-color: #ffffff;
-	height: 100%;
+	  height: 100%;
     .button {
       button {
         margin: 12px 10px;
@@ -147,11 +147,11 @@ export default {
           }
         }
       }
-              .van-row--flex {
-          .van-col {
-            background-clip: content-box;
-          }
+      .van-row--flex {
+        .van-col {
+          background-clip: content-box;
         }
+      }
     }
     .ellipsis {
       text-align: left;

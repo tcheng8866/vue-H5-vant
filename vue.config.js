@@ -1,7 +1,7 @@
 module.exports = {
   publicPath: '/',
   outputDir: 'dist',
-  assetsDir: 'static', 
+  assetsDir: 'static',
   // dist目录有两部分：1.webpack打包文件放在assetsDir; 2.public静态资源原样copy文件（根目录别再创建static）
   indexPath: 'index.html',
   pages: {

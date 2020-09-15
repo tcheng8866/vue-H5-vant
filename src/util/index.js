@@ -119,8 +119,6 @@ export function objDelKey(obj, attr) {
 }
 
 // 日期默认值 20200824
-// "2020-05-08 17:05:51" 使用 moment.js来处理时间（优）
-// moment(cellValue).format('YYYY-MM-DD HH:mm:ss')
 export function getDefaultDate() {
   var currentTime = new Date()
   var y = currentTime.getFullYear()
@@ -130,6 +128,8 @@ export function getDefaultDate() {
   d = d < 10 ? ('0' + d) : d
   return '' + y + m + d
 }
+// "2020-05-08 17:05:51" 使用 moment.js来处理时间（优）
+// moment(cellValue).format('YYYY-MM-DD HH:mm:ss')
 
 
 

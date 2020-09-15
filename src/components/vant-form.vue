@@ -110,9 +110,7 @@ export default {
   word-wrap: break-word;
   .wrap {
     background-color: #ffffff;
-	height: 100%;
-    .field-input {
-    }
+	  height: 100%;
   }
 }
 </style>

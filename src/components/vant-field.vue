@@ -116,9 +116,7 @@ export default {
   word-wrap: break-word;
   .wrap {
     background-color: #ffffff;
-	height: 100%;
-    .field-input {
-    }
+	  height: 100%;
     .field-textarea {
       /deep/ .van-field__value {
         border: 1px solid #999;

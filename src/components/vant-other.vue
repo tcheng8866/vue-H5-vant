@@ -88,14 +88,14 @@ export default {
         title: '标题',
         message: '弹窗内容'
       })
-        .then(() => {
-          this.toast();
-        })
-        .catch(() => {
-          Toast('提示内容');
-          // Toast.success('成功文案');
-          // Toast.fail('失败文案');
-        });
+      .then(() => {
+        this.toast();
+      })
+      .catch(() => {
+        Toast('提示内容');
+        // Toast.success('成功文案');
+        // Toast.fail('失败文案');
+      });
     },
     toast() {
       // 一版用简单的就可以了、也可以自定义效果
@@ -104,7 +104,6 @@ export default {
         forbidClick: true,
         message: '倒计时 3 秒'
       });
-
       let second = 2;
       const timer = setInterval(() => {
         second--;
@@ -118,7 +117,7 @@ export default {
       }, 1000);
     }
   }
-};
+}
 </script>
 
 <style scoped lang="less">
@@ -133,7 +132,7 @@ export default {
   word-wrap: break-word;
   .wrap {
     background-color: #ffffff;
-	height: 100%;
+	  height: 100%;
   }
 }
 </style>

@@ -40,20 +40,18 @@
 </template>
 
 <script>
-import { Dialog } from "vant";
-import { Toast } from "vant";
+import { Dialog, Toast } from 'vant';
 export default {
-  name: "",
   mixins: [],
   components: {},
   props: {},
   data() {
     return {
-      date: "",
+      date: '',
       show: false,
       minDate: new Date(2010, 4, 1),
       maxDate: new Date(2011, 4, 31),
-      date2: "",
+      date2: '',
       show2: false,
       currentDate: new Date()
     };
@@ -68,17 +66,17 @@ export default {
   methods: {
     formatDate(date) {
       // getYear 在IE中是可以正确获取年份：2010，但是在FF等浏览器下则为：110。
-      // 原因则是 在 FF等浏览器内 getYear 返回的是 "当前年份-1900" 的值（即年份基数是1900）
+      // 原因则是 在 FF等浏览器内 getYear 返回的是 '当前年份-1900' 的值（即年份基数是1900）
       return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
     },
     onConfirm(date) {
-      console.log("calendar", date);
+      console.log('calendar', date);
       const [start, end] = date;
       this.show = false;
       this.date = `${this.formatDate(start)} - ${this.formatDate(end)}`;
     },
     confirm(event) {
-      console.log("datetimePicker", event);
+      console.log('datetimePicker', event);
       this.date2 = this.formatDate(event);
       this.show2 = false;
     },
@@ -86,14 +84,14 @@ export default {
       // Dialog  可以组件使用、可以this.$dialog、可以import进来Dialog.xx
       // then：监听确定按钮、catch：监听取消按钮
       Dialog.confirm({
-        title: "标题",
-        message: "弹窗内容"
+        title: '标题',
+        message: '弹窗内容'
       })
         .then(() => {
           this.toast();
         })
         .catch(() => {
-          Toast("提示内容");
+          Toast('提示内容');
           // Toast.success('成功文案');
           // Toast.fail('失败文案');
         });
@@ -103,7 +101,7 @@ export default {
       const toast = Toast.loading({
         duration: 0, // 持续展示 toast
         forbidClick: true,
-        message: "倒计时 3 秒"
+        message: '倒计时 3 秒'
       });
 
       let second = 2;

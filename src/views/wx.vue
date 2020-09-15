@@ -16,15 +16,14 @@
 
 <script>
 export default {
-  name: "",
   mixins: [],
   components: {},
   props: {},
   data() {
     return {
-      networkType: "",
-      longitude: "",
-      latitude: ""
+      networkType: '',
+      longitude: '',
+      latitude: ''
     };
   },
   computed: {},
@@ -34,28 +33,29 @@ export default {
   destroyed() {},
   methods: {
     getNetworkType() {
-      let _that = this;
+      let _that = this
       wx.getNetworkType({
         success: function(res) {
-          _that.networkType = res.networkType; // 返回网络类型2g，3g，4g，wifi
+          _that.networkType = res.networkType // 返回网络类型2g，3g，4g，wifi
         }
       });
     },
     getLocation() {
-      let _that = this;
+      let _that = this
       wx.getLocation({
         success: function(res) {
-          _that.longitude = res.longitude;
-          _that.latitude = res.latitude;
+          _that.longitude = res.longitude
+          _that.latitude = res.latitude
         },
         cancel: function(res) {
-          console.log("用户拒绝授权获取地理位置");
+          console.log('用户拒绝授权获取地理位置')
         }
-      });
+      })
     }
   }
-};
+}
 </script>
+
 <style scoped lang="less">
 .page {
   position: relative;

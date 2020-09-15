@@ -4,15 +4,9 @@
 import axios from 'axios';
 import QS from 'qs';
 import originJSONP from 'jsonp'
-
-import {
-	Toast
-} from 'vant';
-
+import { Toast } from 'vant';
 import API from './api.js'
-import {
-	objToStr
-} from '@/util/index.js'
+import { objToStr } from '@/util/index.js'
 
 // 环境的切换
 // 模式是Vue CLI项目中的一个重要概念。默认情况下，Vue CLI项目中有三种模式：
@@ -28,9 +22,9 @@ if (process.env.NODE_ENV == 'development') {
 	axios.defaults.baseURL = '/api/';
 } else if (process.env.NODE_ENV == 'production') {
 	// npm run build
-	axios.defaults.baseURL = 'http://aaaaaaaaaaaaaaaaaa.com/';
+	axios.defaults.baseURL = '/';
 }
-console.log("环境配置process", process)
+console.log('环境配置process', process)
 
 // 请求超时时间
 axios.defaults.timeout = 100000;
@@ -39,7 +33,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 // 请求拦截器（初始化时执行）
 axios.interceptors.request.use(
 	config => {
-		console.log("axios", config)
+		console.log('axios', config)
 		return config;
 	},
 	error => {
@@ -55,13 +49,13 @@ axios.interceptors.response.use(
 			return Promise.reject(response);
 		}
 	},
-	// 服务器状态码不是200的情况    
+	// 服务器状态码不是200的情况
 	error => {
 		if (error.response.status) {
 			switch (error.response.status) {
-				// 401: 未登录                
+				// 401: 未登录
 				case 401:
-					console.log("401: 未登录")
+					console.log('401: 未登录')
 					// window.location.hash = '/user/smslogin'
 					break;
 				case 404:
@@ -71,7 +65,7 @@ axios.interceptors.response.use(
 						forbidClick: true
 					});
 					break;
-					// 其他错误，直接抛出错误提示                
+				// 其他错误，直接抛出错误提示
 				default:
 					Toast({
 						message: error.response.data.message,
@@ -83,16 +77,16 @@ axios.interceptors.response.use(
 		}
 	}
 );
-/** 
- * get方法，对应get请求 
- * @param {String} url [请求的url地址] 
- * @param {Object} params [请求时携带的参数] 
+/**
+ * get方法，对应get请求
+ * @param {String} url [请求的url地址]
+ * @param {Object} params [请求时携带的参数]
  */
 export function get(url, params) {
 	return new Promise((resolve, reject) => {
 		axios.get(url, {
-				params: params
-			})
+			params: params
+		})
 			.then(res => {
 				resolve(res.data);
 			})
@@ -101,10 +95,10 @@ export function get(url, params) {
 			})
 	});
 }
-/** 
- * post方法，对应post请求 
- * @param {String} url [请求的url地址] 
- * @param {Object} params [请求时携带的参数] 
+/**
+ * post方法，对应post请求
+ * @param {String} url [请求的url地址]
+ * @param {Object} params [请求时携带的参数]
  */
 export function post(url, params) {
 	return new Promise((resolve, reject) => {
@@ -126,23 +120,22 @@ export function post(url, params) {
 	// });
 }
 
-	// async/await是写异步代码的新方式，以前的方法有回调函数和Promise。
-	// async/await是基于Promise实现的，它不能用于普通的回调函数。
-	// async/await与Promise一样，是非阻塞的。
-	// async/await使得异步代码看起来像同步代码，这正是它的魔力所在。
-	
-	// 用promise封装 jsonp 使其支持async/await写法
+// async/await是写异步代码的新方式，以前的方法有回调函数和Promise。
+// async/await是基于Promise实现的，它不能用于普通的回调函数。
+// async/await与Promise一样，是非阻塞的。
+// async/await使得异步代码看起来像同步代码，这正是它的魔力所在。
 
-/** 
+// 用promise封装 jsonp 使其支持async/await写法
+
+/**
  * axios不支持jsonp请求
- * jsonp方法，对应jsonp请求 
- * @param {String} url [请求的url地址] 
+ * jsonp方法，对应jsonp请求
+ * @param {String} url [请求的url地址]
  */
 export function jsonp(url, data, option) {
 	url += (url.indexOf('?') < 0 ? '?' : '&') + objToStr(data)
-
-	return new Promise(function(resolve, reject) {
-		originJSONP(url, option, function(err, data) {
+	return new Promise(function (resolve, reject) {
+		originJSONP(url, option, function (err, data) {
 			if (!err) {
 				resolve(data)
 			} else {

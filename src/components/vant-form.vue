@@ -69,20 +69,19 @@
 
 <script>
 export default {
-  name: "",
   mixins: [],
   components: {},
   props: {},
   data() {
     return {
-      radio: "1",
+      radio: '1',
       checkbox: false,
       checkboxGroup: [],
       switchChecked: false,
       stepper: 1,
       rate: 3.5,
       slider: 50,
-      fileList: [{ url: "https://img.yzcdn.cn/vant/leaf.jpg" }]
+      fileList: [{ url: 'https://img.yzcdn.cn/vant/leaf.jpg' }]
     };
   },
   computed: {},
@@ -93,7 +92,7 @@ export default {
   methods: {
     afterRead(file) {
       // 此时可以自行将文件上传至服务器
-      console.log("van-uploader", file);
+      console.log('van-uploader', file);
     }
   }
 };

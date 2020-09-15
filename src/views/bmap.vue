@@ -24,13 +24,9 @@
 						:showAddressBar="true"
 						:autoLocation="true"
 						@locationSuccess="outPutLocation"
-					  ></bm-geolocation> -->
+          ></bm-geolocation>-->
           <!-- 有bm-marker才能有bm-label、只能设置1px覆盖默认marker图标 -->
-          <bm-marker
-            v-if="geolocationOK"
-            :position="bm_marker.point"
-            :icon="bm_marker.icon"
-          >
+          <bm-marker v-if="geolocationOK" :position="bm_marker.point" :icon="bm_marker.icon">
             <bm-label
               :content="bm_label.content"
               :labelStyle="{ color: 'red', fontSize: '14px' }"
@@ -48,7 +44,7 @@
           <!-- <bm-info-window v-if="geolocationOK" :position="bm_marker.point" :title="infoWindow.title" :show="infoWindow.show"
 					 @close="infoWindowClose" @open="infoWindowOpen" :offset="{ width: 40, height: 70 }">
 						<p v-text="infoWindow.contents"></p>
-					</bm-info-window> -->
+          </bm-info-window>-->
         </baidu-map>
       </div>
     </div>
@@ -64,11 +60,11 @@ import {
   BmLabel,
   BmInfoWindow,
   BmDriving
-} from "vue-baidu-map";
+} from 'vue-baidu-map';
 
 const BMAP_STATUS_SUCCESS = 0;
+
 export default {
-  name: "",
   mixins: [],
   components: {
     BaiduMap,
@@ -101,7 +97,7 @@ export default {
           lat: 34.229099
         },
         icon: {
-          url: require("@/assets/image/logo.png"),
+          url: require('@/assets/image/logo.png'),
           size: {
             width: 1,
             height: 1
@@ -110,79 +106,79 @@ export default {
       },
       // marker标签
       bm_label: {
-        content: "小寨"
+        content: '小寨'
       }
-    };
+    }
   },
   computed: {},
   watch: {},
   created() {},
   mounted() {
-    this.loadMapScript();
+    this.loadMapScript()
   },
   destroyed() {},
   methods: {
     initBmap({ BMap, map }) {
       if (this.$platform.isWechat) {
         this.getCurrentPos(r => {
-          this.$set(this.nearby.center, "lng", r.longitude);
-          this.$set(this.nearby.center, "lat", r.latitude);
-          this.geolocationOK = true;
-        });
+          this.$set(this.nearby.center, 'lng', r.longitude)
+          this.$set(this.nearby.center, 'lat', r.latitude)
+          this.geolocationOK = true
+        })
       } else {
-        var geolocation = new BMap.Geolocation();
-        geolocation.enableSDKLocation();
+        var geolocation = new BMap.Geolocation()
+        geolocation.enableSDKLocation()
         geolocation.getCurrentPosition(
           r => {
             if (geolocation.getStatus() == BMAP_STATUS_SUCCESS) {
-              var mk = new BMap.Marker(r.point);
-              map.addOverlay(mk);
-              map.panTo(r.point);
-              this.nearby.center.lng = r.point.lng;
-              this.nearby.center.lat = r.point.lat;
+              var mk = new BMap.Marker(r.point)
+              map.addOverlay(mk)
+              map.panTo(r.point)
+              this.nearby.center.lng = r.point.lng
+              this.nearby.center.lat = r.point.lat
             } else {
-              console.log("获取定位失败！");
+              console.log('获取定位失败！')
             }
-            this.geolocationOK = true;
+            this.geolocationOK = true
           },
           {
             enableHighAccuracy: true
           }
-        );
+        )
       }
     },
     getCurrentPos(callback) {
       this.wxGetLocation()
         .then(r => {
-          return this.wgs84ConverToBaidu(r.lat, r.lng);
+          return this.wgs84ConverToBaidu(r.lat, r.lng)
         })
         .then(r1 => {
-          callback && callback(r1);
+          callback && callback(r1)
         })
         .catch(() => {
           this.geolocation.getLocation(
             t => {
               this.wgs84ConverToBaidu(t.lat, t.lng).then(t1 => {
-                callback && callback(t1);
-              });
+                callback && callback(t1)
+              })
             },
             m => {
               this.geolocation.getIpLocation(
                 s => {
                   this.wgs84ConverToBaidu(s.lat, s.lng).then(s1 => {
-                    callback && callback(s1);
-                  });
+                    callback && callback(s1)
+                  })
                 },
                 () => {
-                  console.log("getIpLocation error 所有定位都失败");
+                  console.log('getIpLocation error 所有定位都失败')
                 }
-              );
+              )
             },
             {
               timeout: 10000
             }
-          );
-        });
+          )
+        })
     },
     /**
      * 微信获取定位数据
@@ -191,21 +187,21 @@ export default {
     wxGetLocation() {
       return new Promise((resolve, reject) => {
         wx.getLocation({
-          type: "wgs84", // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+          type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
           success: res => {
             resolve({
               lat: res.latitude,
               lng: res.longitude
-            });
+            })
           },
           fail: () => {
-            reject();
+            reject()
           },
           cancel: () => {
-            reject();
+            reject()
           }
-        });
-      });
+        })
+      })
     },
     /**
      * 火星坐标系（腾讯）转百度坐标
@@ -215,11 +211,11 @@ export default {
       return new Promise((resolve, reject) => {
         jsonp({
           url:
-            "http://api.map.baidu.com/geoconv/v1/?coords=" +
+            'http://api.map.baidu.com/geoconv/v1/?coords=' +
             lng +
-            "," +
+            ',' +
             lat +
-            "&from=1&to=5&ak=x7weekL5BrZISrSgMl0swHR2jDxUiZYO",
+            '&from=1&to=5&ak=x7weekL5BrZISrSgMl0swHR2jDxUiZYO',
           success: res => {
             if (res.result) {
               resolve({
@@ -227,55 +223,56 @@ export default {
                 latitude: res.result[0].y
               });
             } else {
-              reject();
+              reject()
             }
           }
-        });
-      });
+        })
+      })
     },
     /**
      * 加载腾讯地图
      * @return {[promise]}
      */
     loadMapScript() {
-      const _this = this;
-      var script = document.createElement("script");
-      script.type = "text/javascript";
+      const _this = this
+      var script = document.createElement('script')
+      script.type = 'text/javascript'
       script.src =
-        "//apis.map.qq.com/tools/geolocation/min?key=GIPBZ-S6M3F-SC6JD-NXREU-YAZ6E-5PB6Y&referer=myapp";
+        '//apis.map.qq.com/tools/geolocation/min?key=GIPBZ-S6M3F-SC6JD-NXREU-YAZ6E-5PB6Y&referer=myapp'
       // 文件加载成功后的回调
       if (script.addEventListener) {
         script.addEventListener(
-          "load",
+          'load',
           function() {
             setTimeout(() => {
               _this.geolocation = new qq.maps.Geolocation();
-            }, 500);
+            }, 500)
           },
           false
         );
       } else if (script.attachEvent) {
-        script.attachEvent("onreadystatechange", function() {
-          var target = window.event.srcElement;
-          if (target.readyState == "loaded") {
+        script.attachEvent('onreadystatechange', function() {
+          var target = window.event.srcElement
+          if (target.readyState == 'loaded') {
             setTimeout(() => {
-              _this.geolocation = new qq.maps.Geolocation();
-            }, 500);
+              _this.geolocation = new qq.maps.Geolocation()
+            }, 500)
           }
-        });
+        })
       }
-      document.body.appendChild(script);
+      document.body.appendChild(script)
     },
     // 信息窗体
     infoWindowClose(e) {
-      this.infoWindow.show = false;
+      this.infoWindow.show = false
     },
     infoWindowOpen(e) {
-      this.infoWindow.show = true;
+      this.infoWindow.show = true
     }
   }
-};
+}
 </script>
+
 <style scoped lang="less">
 .page {
   position: relative;

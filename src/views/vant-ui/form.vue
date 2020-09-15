@@ -10,11 +10,10 @@
 </template>
 
 <script>
-import vantField from "@/components/vant-field.vue";
-import vantForm from "@/components/vant-form.vue";
+import vantField from '@/components/vant-field.vue';
+import vantForm from '@/components/vant-form.vue';
 
 export default {
-  name: "",
   mixins: [],
   components: { vantField, vantForm },
   props: {},

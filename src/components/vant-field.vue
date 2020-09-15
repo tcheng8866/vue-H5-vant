@@ -75,7 +75,6 @@
 
 <script>
 export default {
-  name: "",
   mixins: [],
   components: {},
   props: {},

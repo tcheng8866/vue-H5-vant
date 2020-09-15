@@ -11,16 +11,14 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-
+import { mapState } from 'vuex';
 export default {
-  name: "",
   mixins: [],
   components: {},
   props: {},
   data() {
     return {
-      basciValue: ""
+      basciValue: ''
     };
   },
   computed: {
@@ -31,22 +29,23 @@ export default {
   },
   watch: {},
   created() {
-    this.basciValue = this.vantUiBasciInfo.basciValue;
-    this.localStorage = window.localStorage.getItem("vantUi");
+    this.basciValue = this.vantUiBasciInfo.basciValue
+    this.localStorage = window.localStorage.getItem('vantUi')
   },
   mounted() {},
   destroyed() {},
   methods: {
     clickBtn() {
-      this.vantUiBasciInfo.basciValue = this.basciValue;
-      this.$store.dispatch("setVantUiBasciInfo", this.vantUiBasciInfo);
+      this.vantUiBasciInfo.basciValue = this.basciValue
+      this.$store.dispatch('setVantUiBasciInfo', this.vantUiBasciInfo)
       // dispatch是异步、需要等待下一次刷线dom才能触发、使用$nextTick、setTimeout也处理不了
-      this.localStorage = window.localStorage.getItem("vantUi");
-      this.$forceUpdate();
+      this.localStorage = window.localStorage.getItem('vantUi')
+      this.$forceUpdate()
     }
   }
-};
+}
 </script>
+
 <style scoped lang="less">
 .page {
   position: relative;

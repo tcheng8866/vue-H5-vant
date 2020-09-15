@@ -5,29 +5,24 @@
       <p>npm的jsonp模块、或者document.createElement('script')封装</p>
       <van-field v-model="tel" label="手机号码" placeholder="jsonp测试" />
       <van-button type="primary" @click="clickAwait()">jsonp</van-button>
-	  <van-button type="primary" @click="clickPost()">api封装</van-button>
-	  <van-button type="primary" @click="clickProxy()">proxy</van-button>
-      <van-panel title="手机号查询" desc="" status="jsonp">{{
-        resText
-      }}</van-panel>
-
+      <van-button type="primary" @click="clickPost()">api封装</van-button>
+      <van-button type="primary" @click="clickProxy()">proxy</van-button>
+      <van-panel title="手机号查询" desc status="jsonp">{{ resText }}</van-panel>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
-
+import { mapState } from 'vuex';
 export default {
-  name: "",
   mixins: [],
   components: {},
   props: {},
   data() {
     return {
       tel: 18702906728,
-      resText: "https://tcc.taobao.com/cc/json/mobile_tel_segment.htm"
-    };
+      resText: 'https://tcc.taobao.com/cc/json/mobile_tel_segment.htm'
+    }
   },
   computed: {},
   watch: {},
@@ -39,68 +34,69 @@ export default {
     async clickAwait() {
       try {
         const res = await this.$jsonp(
-          "https://tcc.taobao.com/cc/json/mobile_tel_segment.htm",
+          'https://tcc.taobao.com/cc/json/mobile_tel_segment.htm',
           {
             tel: this.tel
           }
-        );
+        )
         if (res) {
-          this.resText = res;
+          this.resText = res
         }
       } catch (e) {
-        this.resText = e;
+        this.resText = e
       }
     },
-	// promise 写法
+	  // promise 写法
     clickPromise() {
       const res = this.$jsonp(
-        "https://tcc.taobao.com/cc/json/mobile_tel_segment.htm",
+        'https://tcc.taobao.com/cc/json/mobile_tel_segment.htm',
         {
           tel: this.tel
         }
       )
-        .then(res => {
-          this.resText = res;
-        })
-        .catch(err => {
-          this.resText = err;
-        });
+      .then(res => {
+        this.resText = res
+      })
+      .catch(err => {
+        this.resText = err
+      })
     },
-	// 测试 api  post
+	  // 测试 api  post
     async clickPost() {
       try {
         const res = await this.$post(
-          "modules/interface",
+          'modules/interface',
           {
             tel: this.tel
           }
-        );
+        )
         if (res) {
-          this.resText = res;
+          this.resText = res
         }
       } catch (e) {
-        this.resText = e;
+        this.resText = e
       }
-    },	
-	// 测试 proxy
-	async clickProxy() {
+    },
+    // 测试 proxy
+    async clickProxy() {
       try {
         const res = await this.$post(
-          "modules/proxy",
+          'modules/proxy',
           {
             tel: this.tel
           }
-        );
+        )
         if (res) {
-          this.resText = res;
+          this.resText = res
         }
       } catch (e) {
-        this.resText = e;
-      }		
-	}
+        this.resText = e
+      }
+    }
   }
-};
+}
 </script>
+
 <style scoped lang="less">
 .page {
   position: relative;

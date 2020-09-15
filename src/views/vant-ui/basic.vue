@@ -5,10 +5,9 @@
 </template>
 
 <script>
-import vantBasic from "@/components/vant-basic.vue";
+import vantBasic from '@/components/vant-basic.vue';
 
 export default {
-  name: "",
   mixins: [],
   components: { vantBasic },
   props: {},

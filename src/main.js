@@ -3,9 +3,6 @@ import App from './App.vue'
 import router from './router/index.js'
 import store from './store'
 
-// 清除默认样式
-/* import '@/assets/style/reset.css' */
-
 // 全局
 import global from './global.js'
 Vue.use(global)
@@ -18,10 +15,6 @@ Vue.use(compWrap)
 import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
-
-// 可视化组件
-import dataV from '@jiaminghi/data-view'
-Vue.use(dataV)
 
 // lazy-load
 import VueLazyload from 'vue-lazyload'

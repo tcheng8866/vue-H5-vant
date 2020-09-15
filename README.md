@@ -8,8 +8,8 @@ vue-cli 3.0 + vue-router+ vux plugins插件 + 有赞vant UI整体解决方案;
 
 ## 功能列表
 
-- vuex  观测 vuex 与 localStorage 
-- axios api的封装、抽离 
+- vuex  观测 vuex 与 localStorage
+- axios api的封装、抽离
 - bmap  wx公众号定位、浏览器定位、ip定位、百度定位
 - wx 微信基础能力
 - compwrap 个人仓库comp-wrap暴露的组件

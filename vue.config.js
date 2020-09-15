@@ -20,12 +20,12 @@ module.exports = {
     https: false,
     open: true,
     proxy: {
-      '/api': { // axios.defaults.baseURL设置
-        target: 'http://119.45.210.92:9002',
+      '/api': {
+        target: process.env.VUE_APP_BASE_API,
         ws: true,
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''  // 剔除掉（开发环境）前端加的xxx
+          '^/api': ''
         }
       }
     }

@@ -14,24 +14,19 @@ import { objToStr } from '@/util/index.js'
 // production：在vue-cli-service build 和vue-cli-service test:e2e下，即正式环境使用
 // test： 在vue-cli-service test:unit下使用,
 
-// 配置后请求路径（代理前）
-// 开发环境:http://localhost:8080/api/xxx   （vue.config.js中的devServer.host）
-// 生产环境 http://baidu.com/xxx
-if (process.env.NODE_ENV == 'development') {
-	// npm run serve
-	axios.defaults.baseURL = '/api/';
-} else if (process.env.NODE_ENV == 'production') {
-	// npm run build
-	axios.defaults.baseURL = '/';
-}
-console.log('环境配置process', process)
+const service = axios.create({
+	'baseURL': process.env.VUE_APP_BASE_API, // url = base url + request url
+	'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+	'token':'bearer 121fb488-c4ac-4ea4-ba76-db2366c10f14',
+  'timeout': 30000
+})
 
-// 请求超时时间
-axios.defaults.timeout = 100000;
-// post请求头
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+if (process.env.NODE_ENV == 'development') {
+	axios.defaults.baseURL = '/api/';
+}
+
 // 请求拦截器（初始化时执行）
-axios.interceptors.request.use(
+service.interceptors.request.use(
 	config => {
 		console.log('axios', config)
 		return config;
@@ -41,7 +36,7 @@ axios.interceptors.request.use(
 	})
 
 // 响应拦截器
-axios.interceptors.response.use(
+service.interceptors.response.use(
 	response => {
 		if (response.status === 200) {
 			return Promise.resolve(response);
@@ -52,27 +47,10 @@ axios.interceptors.response.use(
 	// 服务器状态码不是200的情况
 	error => {
 		if (error.response.status) {
-			switch (error.response.status) {
-				// 401: 未登录
-				case 401:
-					console.log('401: 未登录')
-					// window.location.hash = '/user/smslogin'
-					break;
-				case 404:
-					Toast({
-						message: '网络请求不存在',
-						duration: 1500,
-						forbidClick: true
-					});
-					break;
-				// 其他错误，直接抛出错误提示
-				default:
-					Toast({
-						message: error.response.data.message,
-						duration: 1500,
-						forbidClick: true
-					});
-			}
+    // 异常弹框 ?  整体处理
+    if (response.data.code && response.data.code !== '0000') {
+      Message.error(response.data.message)
+    }
 			return Promise.reject(error.response);
 		}
 	}

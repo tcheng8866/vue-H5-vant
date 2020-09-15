@@ -40,6 +40,7 @@
 </template>
 
 <script>
+// js 引入的 无法提到公共
 import { Dialog, Toast } from 'vant';
 export default {
   mixins: [],

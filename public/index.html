@@ -12,13 +12,16 @@
 		</title>
 	</head>
 	<body>
-		<noscript>
-			<strong>We're sorry but
-				<%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to
-				continue.</strong>
-		</noscript>
 		<div id="app"></div>
-		<!-- built files will be auto injected -->
-		<script src="jweixin-1.4.0.js"></script>
+    <script typet="text/javascript" async="async" src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script>
+      if (!window.returnCitySN) {
+        window.returnCitySN = {
+          cip: '127.0.0.1'
+        }
+      }
+    </script>
+    <script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <!-- built files will be auto injected -->
 	</body>
 </html>

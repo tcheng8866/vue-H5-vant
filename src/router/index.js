@@ -5,7 +5,6 @@ import vuexView from '@/views/vuex.vue'
 import axiosView from '@/views/axios.vue'
 import bmapView from '@/views/bmap.vue'
 import wxView from '@/views/wx.vue'
-import datavView from '@/views/datav.vue'
 import compWrapView from '@/views/comp-wrap.vue'
 
 import vantUiViews from '@/views/vant-ui/vant-ui.vue'
@@ -38,17 +37,12 @@ const routes = [
     path: '/wx',
     name: 'wx',
     component: wxView
-  },  
-  {
-    path: '/datav',
-    name: 'datav',
-    component: datavView
   },
   {
     path: '/compwrap',
     name: 'compWrap',
     component: compWrapView
-  },  
+  },
   {
     path: '/vantUi',
     component: vantUiViews,

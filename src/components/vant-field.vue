@@ -80,14 +80,14 @@ export default {
   props: {},
   data() {
     return {
-      tel: "",
-      text: "",
-      digit: "",
-      number: "",
-      password: "",
-      sms: "",
-      value: "",
-      message: ""
+      tel: '',
+      text: '',
+      digit: '',
+      number: '',
+      password: '',
+      sms: '',
+      value: '',
+      message: ''
     };
   },
   computed: {},
@@ -98,7 +98,7 @@ export default {
   methods: {
     formatter(value) {
       // 过滤输入的数字
-      return value.replace(/\d/g, "");
+      return value.replace(/\d/g, '');
     }
   }
 };

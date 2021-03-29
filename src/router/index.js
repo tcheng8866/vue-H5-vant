@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import vuexView from '@/views/vuex.vue'
+import pdfView from '@/views/pdf.vue'
+
 import axiosView from '@/views/axios.vue'
 import bmapView from '@/views/bmap.vue'
 import wxView from '@/views/wx.vue'
@@ -22,6 +24,11 @@ const routes = [
     path: '/',
     name: 'vuex',
     component: vuexView
+  },
+  {
+    path: '/pdf',
+    name: 'pdf',
+    component: pdfView
   },
   {
     path: '/axios',

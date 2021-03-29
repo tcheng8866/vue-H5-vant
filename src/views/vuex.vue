@@ -7,6 +7,7 @@
       <van-divider>localStorage</van-divider>
       <div v-html="localStorage"></div>
     </div>
+    <van-button type="primary" @click="clickBtnPDF()">预览PDF</van-button>
   </div>
 </template>
 
@@ -35,6 +36,9 @@ export default {
   mounted() {},
   destroyed() {},
   methods: {
+    clickBtnPDF() {
+      this.$router.push('/pdf')
+    },
     clickBtn() {
       this.vantUiBasciInfo.basciValue = this.basciValue
       this.$store.dispatch('setVantUiBasciInfo', this.vantUiBasciInfo)

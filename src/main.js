@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import 'normalize.css/normalize.css' // Normalize.css是一种CSS reset的替代方案
+// import 'normalize.css/normalize.css' // Normalize.css是一种CSS reset的替代方案
 
 // vant
 import Vant from 'vant';
@@ -26,10 +26,12 @@ Vue.use(global)
 
 // vconsole[非生产环境]
 import Vconsole from 'vconsole'
-if (process.env.NODE_ENV !== 'production') {
-  const VConsole = new Vconsole()
-  Vue.use(VConsole)
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   const VConsole = new Vconsole()
+//   Vue.use(VConsole)
+// }
+const VConsole = new Vconsole()
+Vue.use(VConsole)
 
 // 禁止生产提示
 Vue.config.productionTip = false

@@ -1,5 +1,11 @@
+const path = require('path')
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
+const name = '陕西省新冠疫情防控政务端管理系统' // 标题
+
 module.exports = {
-  publicPath: '/',
+  publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
   // dist目录有两部分：1.webpack打包文件放在assetsDir; 2.public静态资源原样copy文件（根目录别再创建static）
@@ -29,6 +35,18 @@ module.exports = {
         }
       }
     }
+  },
+  configureWebpack: {
+    name: name,
+    resolve: {
+        alias: {
+            '@': resolve('src')
+        }
+    },
+    output: {
+        filename: `[name].${new Date().getTime()}.js`,
+        chunkFilename: `[name].${new Date().getTime()}.js`
+    },
   },
   pluginOptions: {}
 }
